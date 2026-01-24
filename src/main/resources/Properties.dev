@@ -1,0 +1,18 @@
+
+
+
+
+username=sysadmin
+password=4004
+
+#log4j.logger.er.directtoweb.rules.ERD2WTraceRuleFiringEnabled=DEBUG
+
+
+
+# Connection Dictionary
+ dbConnectURLGLOBAL=jdbc:postgresql://192.168.1.68/myapp?capitalizeTypenames=true&zeroDateTimeBehavior=convertToNull
+ dbConnectUserGLOBAL=wouser
+ dbConnectPasswordGLOBAL=3368
+ dbConnectPluginGLOBAL=PostgresqlPlugIn
+ dbConnectDriverGLOBAL=org.postgresql.Driver
+# dbEOPrototypesEntityGLOBAL=EOJDBCPostgresqlPrototypes

@@ -1,0 +1,14 @@
+{
+    attributes = (
+        {columnName = firstname; name = firstName; prototypeName = longText; }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = lastname; name = lastName; prototypeName = longText; }
+    ); 
+    attributesUsedForLocking = (firstName, id, lastName); 
+    className = "com.eltek.model.Person"; 
+    classProperties = (firstName, lastName); 
+    externalName = person; 
+    fetchSpecificationDictionary = {}; 
+    name = Person; 
+    primaryKeyAttributes = (id); 
+}

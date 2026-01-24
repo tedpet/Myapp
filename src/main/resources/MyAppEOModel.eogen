@@ -1,0 +1,12 @@
+ -destination src/main/java \
+ -extension java \
+ -java \
+ -javaTemplate _ASEntity.java \
+ -model src/main/resources/MyAppEOModel.eomodeld \
+ -packagedirs \
+ -subclassDestination src/main/java \
+ -subclassJavaTemplate ASEntity.java \
+ -templatedir src/main/resources/EOGenTemp \
+ -verbose \
+ -loadModelGroup \
+ -superclassPackage gen
