@@ -1,9 +1,0 @@
-
-
-# Connection Dictionary
- dbConnectURLGLOBAL=jdbc:postgresql://localhost/myapp?capitalizeTypenames=true&zeroDateTimeBehavior=convertToNull
- dbConnectUserGLOBAL=wouser
- dbConnectPasswordGLOBAL=3368
- dbConnectPluginGLOBAL=PostgresqlPlugIn
- dbConnectDriverGLOBAL=org.postgresql.Driver
-# dbEOPrototypesEntityGLOBAL=EOJDBCPostgresqlPrototypes

@@ -60,6 +60,21 @@
 			<version>${wonder.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>wonder.d2w</groupId>
+			<artifactId>ERModernLook</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>wonder.d2w</groupId>
+			<artifactId>ERModernDefaultSkin</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>wonder.d2w</groupId>
+			<artifactId>ERModernDirectToWeb</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>wonder.core</groupId>
 			<artifactId>WOOgnl</artifactId>
 			<version>${wonder.version}</version>
@@ -83,24 +98,6 @@
 			<groupId>com.webobjects</groupId>
 			<artifactId>JavaEOAccess</artifactId>
 			<version>${webobjects.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>wonder.d2w</groupId>
-			<artifactId>ERModernLook</artifactId>
-			<version>${wonder.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>wonder.d2w</groupId>
-			<artifactId>ERModernDefaultSkin</artifactId>
-			<version>${wonder.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>wonder.misc</groupId>
-			<artifactId>WOLips</artifactId>
-			<version>${wonder.version}</version>
 		</dependency>
 
 		<dependency>

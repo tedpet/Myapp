@@ -2,7 +2,10 @@
     EOModelVersion = "2.1"; 
     adaptorName = JDBC; 
     connectionDictionary = {}; 
-    entities = ({className = "com.eltek.model.Person"; name = Person; }); 
+    entities = (
+        {className = "com.eltek.model.Client"; name = Client; }, 
+        {className = "com.eltek.model.Person"; name = Person; }
+    ); 
     userInfo = {
         "_EntityModeler" = {
             activeDatabaseConfigName = Default; 

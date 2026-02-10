@@ -1,9 +1,11 @@
 
 
 # Connection Dictionary
- dbConnectURLGLOBAL=jdbc:postgresql://localhost/myapp?capitalizeTypenames=true&zeroDateTimeBehavior=convertToNull
+ dbConnectURLGLOBAL=jdbc:postgresql://ip-172-31-6-41.ec2.internal/myapp?capitalizeTypenames=true&zeroDateTimeBehavior=convertToNull
  dbConnectUserGLOBAL=wouser
  dbConnectPasswordGLOBAL=3368
  dbConnectPluginGLOBAL=PostgresqlPlugIn
  dbConnectDriverGLOBAL=org.postgresql.Driver
 # dbEOPrototypesEntityGLOBAL=EOJDBCPostgresqlPrototypes
+
+#ec2-3-236-238-228.compute-1.amazonaws.com

@@ -1,19 +1,25 @@
 (
 	{
 		name = Root;
-		children = ("Home","Tab1","Tab2");
+		children = ("Home","Person","Client");
 	},
 	{
 		name = "Home";
 		action = "session.navController.homeAction";
+		children = ("CreatePerson");
 	},
 	{
-		name = Tab1;
-		action = "session.navController.homeAction";
+		name = CreatePerson;
+		action = "session.navController.createPersonAction";
 	},
 	{
-		name = Tab2;
-		action = "session.navController.homeAction";
+		name = Client;
+		action = "session.navController.listClientAction";
+		children = ("CreateKids");
+	},
+	{
+		name = CreateKids;
+		action = "session.navController.createClientAction";
 	}
 
 )

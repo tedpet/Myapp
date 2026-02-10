@@ -1,0 +1,14 @@
+{
+    attributes = (
+        {columnName = clientname; name = clientName; prototypeName = longText; }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {columnName = retired; name = retired; prototypeName = intBoolean; }
+    ); 
+    attributesUsedForLocking = (clientName, id, retired); 
+    className = "com.eltek.model.Client"; 
+    classProperties = (clientName, retired); 
+    externalName = client; 
+    fetchSpecificationDictionary = {}; 
+    name = Client; 
+    primaryKeyAttributes = (id); 
+}

@@ -23,12 +23,21 @@ public class MyAppEOModel0 extends ERXMigrationDatabase.Migration {
 
 	@Override
 	public void upgrade(EOEditingContext editingContext, ERXMigrationDatabase database) throws Throwable {
+		
+		ERXMigrationTable clientTable = database.newTableNamed("client");
+		clientTable.newLargeStringColumn("clientname", NOT_NULL);
+		clientTable.newIntegerColumn("id", NOT_NULL);
+		clientTable.newFlagBooleanColumn("retired", NOT_NULL);
+		clientTable.create();
+	 	clientTable.setPrimaryKey("id");
+
 		ERXMigrationTable personTable = database.newTableNamed("person");
 		personTable.newLargeStringColumn("firstname", NOT_NULL);
 		personTable.newIntegerColumn("id", NOT_NULL);
 		personTable.newLargeStringColumn("lastname", NOT_NULL);
 		personTable.create();
 	 	personTable.setPrimaryKey("id");
+
 	 	
 	 	ERXJDBCUtilities.executeUpdate(database.adaptorChannel(), "INSERT INTO PERSON " +
 	    		"(firstname, lastname) VALUES " +
@@ -42,6 +51,9 @@ public class MyAppEOModel0 extends ERXMigrationDatabase.Migration {
 	    		"(firstname, lastname) VALUES " +
 	    		"('Paul', 'Gurley')");
 
+	 	ERXJDBCUtilities.executeUpdate(database.adaptorChannel(), "INSERT INTO CLIENT " +
+	    		"(clientname, retired) VALUES " +
+	    		"('GBC','false')");
 	 	
 	}
 }
