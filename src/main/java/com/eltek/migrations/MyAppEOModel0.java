@@ -35,21 +35,22 @@ public class MyAppEOModel0 extends ERXMigrationDatabase.Migration {
 		personTable.newLargeStringColumn("firstname", NOT_NULL);
 		personTable.newIntegerColumn("id", NOT_NULL);
 		personTable.newLargeStringColumn("lastname", NOT_NULL);
+		personTable.newFlagBooleanColumn("retired", NOT_NULL);
 		personTable.create();
 	 	personTable.setPrimaryKey("id");
 
 	 	
 	 	ERXJDBCUtilities.executeUpdate(database.adaptorChannel(), "INSERT INTO PERSON " +
-	    		"(firstname, lastname) VALUES " +
-	    		"('Lynn', 'Kokorsky')"); 
+	    		"(firstname, lastname, retired) VALUES " +
+	    		"('Lynn', 'Kokorsky','false')"); 
 	 	
 	 	ERXJDBCUtilities.executeUpdate(database.adaptorChannel(), "INSERT INTO PERSON " +
-	    		"(firstname, lastname) VALUES " +
-	    		"('Theodore', 'Petrosky')");
+	    		"(firstname, lastname, retired) VALUES " +
+	    		"('Theodore', 'Petrosky','false')");
 	 	
 	 	ERXJDBCUtilities.executeUpdate(database.adaptorChannel(), "INSERT INTO PERSON " +
-	    		"(firstname, lastname) VALUES " +
-	    		"('Paul', 'Gurley')");
+	    		"(firstname, lastname, retired) VALUES " +
+	    		"('Paul', 'Gurley','false')");
 
 	 	ERXJDBCUtilities.executeUpdate(database.adaptorChannel(), "INSERT INTO CLIENT " +
 	    		"(clientname, retired) VALUES " +

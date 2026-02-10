@@ -9,8 +9,17 @@
 		children = ("CreatePerson");
 	},
 	{
+		name = "Person";
+		action = "session.navController.listPersonAction";
+		children = ("CreatePerson","SearchPerson");
+	},
+	{
 		name = CreatePerson;
 		action = "session.navController.createPersonAction";
+	},
+	{
+		name = SearchPerson;
+		action = "session.navController.searchPersonAction";
 	},
 	{
 		name = Client;

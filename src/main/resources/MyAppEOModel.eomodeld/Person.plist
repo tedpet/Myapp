@@ -2,11 +2,12 @@
     attributes = (
         {columnName = firstname; name = firstName; prototypeName = longText; }, 
         {allowsNull = N; name = id; prototypeName = id; }, 
-        {columnName = lastname; name = lastName; prototypeName = longText; }
+        {columnName = lastname; name = lastName; prototypeName = longText; }, 
+        {columnName = retired; name = retired; prototypeName = intBoolean; }
     ); 
-    attributesUsedForLocking = (firstName, id, lastName); 
+    attributesUsedForLocking = (firstName, id, lastName, retired); 
     className = "com.eltek.model.Person"; 
-    classProperties = (firstName, lastName); 
+    classProperties = (firstName, lastName, retired); 
     externalName = person; 
     fetchSpecificationDictionary = {}; 
     name = Person; 

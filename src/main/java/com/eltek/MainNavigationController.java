@@ -42,12 +42,46 @@ public class MainNavigationController {
 //		return queryPageForEntityName(MOVIE);
 //	}
 //	
+	
+	public WOComponent searchPersonAction() {
+		return queryPageForEntityName(Person.ENTITY_NAME);
+	}
+	
 	public WOComponent createPersonAction() {
 		return newObjectForEntityName(Person.ENTITY_NAME);
 	}
 	
 	public WOComponent createClientAction() {
 		return newObjectForEntityName(Client.ENTITY_NAME);
+	}
+	//  
+	public WOComponent listPersonAction() {
+		EOEditingContext ec = ERXEC.newEditingContext();
+		ec.lock();
+
+		ListPageInterface lpi;
+		try {
+			EODatabaseDataSource ds = new EODatabaseDataSource(ec, Person.ENTITY_NAME);
+
+			
+			ERXFetchSpecification<Person> fs = 
+			new ERXFetchSpecification<Person>(Person.ENTITY_NAME, ERXQ.equals(Client.RETIRED_KEY, false), null);
+
+			ds.setFetchSpecification(fs);
+
+			lpi = D2W.factory().listPageForEntityNamed(Person.ENTITY_NAME, session());
+			lpi.setDataSource(ds);
+			
+			if(lpi instanceof D2WPage) {
+				
+				((D2WPage) lpi).d2wContext().takeValueForKey("Person", "navigationState");
+				//((D2WPage) lpi).d2wContext().takeValueForKey("AgendaInstructions", "headerInstructionComponentName");
+			}			
+		}
+		finally {
+			ec.unlock();
+		}
+		return (WOComponent) lpi;
 	}
 	
 	public WOComponent listClientAction() {
