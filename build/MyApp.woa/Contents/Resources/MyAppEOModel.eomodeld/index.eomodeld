@@ -4,7 +4,9 @@
     connectionDictionary = {}; 
     entities = (
         {className = "com.eltek.model.Client"; name = Client; }, 
-        {className = "com.eltek.model.Person"; name = Person; }
+        {className = "com.eltek.model.Person"; name = Person; }, 
+        {className = "com.eltek.model.Security"; name = Security; }, 
+        {className = "com.eltek.model.Subscription"; name = Subscription; }
     ); 
     userInfo = {
         "_EntityModeler" = {

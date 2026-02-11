@@ -4,6 +4,7 @@
     40 : *true* => navigationState = "Home" [com.webobjects.directtoweb.Assignment],
     50 : pageConfiguration like '*Client*' => navigationState = "Client" [com.webobjects.directtoweb.Assignment],
     50 : pageConfiguration like '*Person*' => navigationState = "Person" [com.webobjects.directtoweb.Assignment],
+    50 : pageConfiguration like '*Subscription*' => navigationState = "Subscription" [com.webobjects.directtoweb.Assignment],
     60 : (task = 'edit' and smartAttribute.className = 'java.lang.String' and smartAttribute.width >= (java.lang.Number)'110') => componentName = "ERD2WEditString" [com.webobjects.directtoweb.Assignment],
     100 : *true* => look = "ERModernLook" [com.webobjects.directtoweb.Assignment],
     100 : *true* => datePickerRangeHigh = "20091205" [com.webobjects.directtoweb.Assignment],

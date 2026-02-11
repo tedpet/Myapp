@@ -1,0 +1,57 @@
+{
+    attributes = (
+        {columnName = available; name = available; prototypeName = intBoolean; }, 
+        {columnName = cclastfour; name = ccLastFour; prototypeName = longText; }, 
+        {allowsNull = N; name = id; prototypeName = id; }, 
+        {
+            allowsNull = Y; 
+            columnName = loginpassword; 
+            name = loginPassword; 
+            prototypeName = longText; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = subscriptiondate; 
+            name = subscriptionDate; 
+            prototypeName = date; 
+        }, 
+        {
+            columnName = subscriptionname; 
+            name = subscriptionName; 
+            prototypeName = longText; 
+        }, 
+        {columnName = username; name = userName; prototypeName = longText; }
+    ); 
+    attributesUsedForLocking = (
+        available, 
+        ccLastFour, 
+        id, 
+        loginPassword, 
+        subscriptionDate, 
+        subscriptionName, 
+        userName
+    ); 
+    className = "com.eltek.model.Subscription"; 
+    classProperties = (
+        available, 
+        ccLastFour, 
+        loginPassword, 
+        persons, 
+        subscriptionDate, 
+        subscriptionName, 
+        userName
+    ); 
+    externalName = subscription; 
+    fetchSpecificationDictionary = {}; 
+    name = Subscription; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = Person; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = subscriptionID; sourceAttribute = id; }); 
+            name = persons; 
+        }
+    ); 
+}

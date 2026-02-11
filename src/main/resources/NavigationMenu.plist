@@ -1,7 +1,7 @@
 (
 	{
 		name = Root;
-		children = ("Home","Person","Client");
+		children = ("Home","Person","Client","Subscription");
 	},
 	{
 		name = "Home";
@@ -35,6 +35,20 @@
 		name = SearchClients;
 		displayName = "Search Clients";
 		action = "session.navController.searchClientAction";
+	},
+	{
+		name = Subscription;
+		action = "session.navController.listSubscriptionsForUserAction";
+		children = ("CreateSubscription","SearchSubscriptions");
+	},
+	{
+		name = CreateSubscription;
+		displayName="Create Subscription";
+		action = "session.navController.createSubscriptionAction";
+	},
+	{
+		name = SearchSubscriptions;
+		displayName = "Search Subscriptions";
+		action = "session.navController.searchSubscriptionsAction";
 	}
-
 )

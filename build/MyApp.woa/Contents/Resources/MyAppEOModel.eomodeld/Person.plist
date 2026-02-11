@@ -3,13 +3,42 @@
         {columnName = firstname; name = firstName; prototypeName = longText; }, 
         {allowsNull = N; name = id; prototypeName = id; }, 
         {columnName = lastname; name = lastName; prototypeName = longText; }, 
-        {columnName = retired; name = retired; prototypeName = intBoolean; }
+        {columnName = retired; name = retired; prototypeName = intBoolean; }, 
+        {
+            allowsNull = N; 
+            columnName = securityid; 
+            name = securityID; 
+            prototypeName = id; 
+        }, 
+        {
+            allowsNull = Y; 
+            columnName = subscriptionid; 
+            name = subscriptionID; 
+            prototypeName = id; 
+        }
     ); 
-    attributesUsedForLocking = (firstName, id, lastName, retired); 
+    attributesUsedForLocking = (firstName, id, lastName, retired, securityID, subscriptionID); 
     className = "com.eltek.model.Person"; 
-    classProperties = (firstName, lastName, retired); 
+    classProperties = (firstName, lastName, retired, security, subscription); 
     externalName = person; 
     fetchSpecificationDictionary = {}; 
     name = Person; 
     primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = Security; 
+            isMandatory = Y; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = securityID; }); 
+            name = security; 
+        }, 
+        {
+            destination = Subscription; 
+            isToMany = N; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = id; sourceAttribute = subscriptionID; }); 
+            name = subscription; 
+        }
+    ); 
 }

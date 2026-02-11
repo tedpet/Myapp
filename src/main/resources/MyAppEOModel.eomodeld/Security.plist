@@ -1,0 +1,28 @@
+{
+    attributes = (
+        {columnName = createperson; name = createPerson; prototypeName = intBoolean; }, 
+        {
+            columnName = createsubscription; 
+            name = createSubscription; 
+            prototypeName = intBoolean; 
+        }, 
+        {columnName = editperson; name = editPerson; prototypeName = intBoolean; }, 
+        {allowsNull = N; name = id; prototypeName = id; }
+    ); 
+    attributesUsedForLocking = (createPerson, createSubscription, editPerson, id); 
+    className = "com.eltek.model.Security"; 
+    classProperties = (createPerson, createSubscription, editPerson, persons); 
+    externalName = security; 
+    fetchSpecificationDictionary = {}; 
+    name = Security; 
+    primaryKeyAttributes = (id); 
+    relationships = (
+        {
+            destination = Person; 
+            isToMany = Y; 
+            joinSemantic = EOInnerJoin; 
+            joins = ({destinationAttribute = securityID; sourceAttribute = id; }); 
+            name = persons; 
+        }
+    ); 
+}

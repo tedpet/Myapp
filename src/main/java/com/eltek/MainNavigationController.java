@@ -59,8 +59,46 @@ public class MainNavigationController {
 	
 	public WOComponent searchClientAction() {
 		return queryPageForEntityName(Client.ENTITY_NAME);
+	} 
+
+	
+	public WOComponent createSubscriptionAction() {
+		return newObjectForEntityName(Subscription.ENTITY_NAME);
+	}
+	
+	public WOComponent searchSubscriptionsAction() {
+		return queryPageForEntityName(Subscription.ENTITY_NAME);
 	}
 
+	public WOComponent listSubscriptionsForUserAction() {
+		EOEditingContext ec = ERXEC.newEditingContext();
+		ec.lock();
+
+		ListPageInterface lpi;
+		try {
+			EODatabaseDataSource ds = new EODatabaseDataSource(ec, Subscription.ENTITY_NAME);
+
+			
+			ERXFetchSpecification<Subscription> fs = 
+			new ERXFetchSpecification<Subscription>(Subscription.ENTITY_NAME, ERXQ.equals(Subscription.AVAILABLE_KEY, true), null);
+
+			ds.setFetchSpecification(fs);
+
+			lpi = D2W.factory().listPageForEntityNamed(Subscription.ENTITY_NAME, session());
+			lpi.setDataSource(ds);
+			
+			if(lpi instanceof D2WPage) {
+				
+				((D2WPage) lpi).d2wContext().takeValueForKey("Subscription", "navigationState");
+				//((D2WPage) lpi).d2wContext().takeValueForKey("AgendaInstructions", "headerInstructionComponentName");
+			}			
+		}
+		finally {
+			ec.unlock();
+		}
+		return (WOComponent) lpi;
+	}
+	
 	public WOComponent listPersonAction() {
 		EOEditingContext ec = ERXEC.newEditingContext();
 		ec.lock();

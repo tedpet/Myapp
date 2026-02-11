@@ -18,12 +18,20 @@ public abstract class _Person extends  ERXGenericRecord {
   // Attribute Keys
   public static final ERXKey<String> FIRST_NAME = new ERXKey<String>("firstName");
   public static final ERXKey<String> LAST_NAME = new ERXKey<String>("lastName");
+  public static final ERXKey<String> LOGIN = new ERXKey<String>("login");
+  public static final ERXKey<Boolean> RETIRED = new ERXKey<Boolean>("retired");
   // Relationship Keys
+  public static final ERXKey<com.eltek.model.Security> SECURITY = new ERXKey<com.eltek.model.Security>("security");
+  public static final ERXKey<com.eltek.model.Subscription> SUBSCRIPTION = new ERXKey<com.eltek.model.Subscription>("subscription");
 
   // Attributes
   public static final String FIRST_NAME_KEY = FIRST_NAME.key();
   public static final String LAST_NAME_KEY = LAST_NAME.key();
+  public static final String LOGIN_KEY = LOGIN.key();
+  public static final String RETIRED_KEY = RETIRED.key();
   // Relationships
+  public static final String SECURITY_KEY = SECURITY.key();
+  public static final String SUBSCRIPTION_KEY = SUBSCRIPTION.key();
 
   private static Logger LOG = Logger.getLogger(_Person.class);
 
@@ -57,13 +65,90 @@ public abstract class _Person extends  ERXGenericRecord {
     takeStoredValueForKey(value, _Person.LAST_NAME_KEY);
   }
 
+  public String login() {
+    return (String) storedValueForKey(_Person.LOGIN_KEY);
+  }
+
+  public void setLogin(String value) {
+    if (_Person.LOG.isDebugEnabled()) {
+    	_Person.LOG.debug( "updating login from " + login() + " to " + value);
+    }
+    takeStoredValueForKey(value, _Person.LOGIN_KEY);
+  }
+
+  public Boolean retired() {
+    return (Boolean) storedValueForKey(_Person.RETIRED_KEY);
+  }
+
+  public void setRetired(Boolean value) {
+    if (_Person.LOG.isDebugEnabled()) {
+    	_Person.LOG.debug( "updating retired from " + retired() + " to " + value);
+    }
+    takeStoredValueForKey(value, _Person.RETIRED_KEY);
+  }
+
+  public com.eltek.model.Security security() {
+    return (com.eltek.model.Security)storedValueForKey(_Person.SECURITY_KEY);
+  }
+  
+  public void setSecurity(com.eltek.model.Security value) {
+    takeStoredValueForKey(value, _Person.SECURITY_KEY);
+  }
+
+  public void setSecurityRelationship(com.eltek.model.Security value) {
+    if (_Person.LOG.isDebugEnabled()) {
+      _Person.LOG.debug("updating security from " + security() + " to " + value);
+    }
+    if (er.extensions.eof.ERXGenericRecord.InverseRelationshipUpdater.updateInverseRelationships()) {
+    	setSecurity(value);
+    }
+    else if (value == null) {
+    	com.eltek.model.Security oldValue = security();
+    	if (oldValue != null) {
+    		removeObjectFromBothSidesOfRelationshipWithKey(oldValue, _Person.SECURITY_KEY);
+      }
+    } else {
+    	addObjectToBothSidesOfRelationshipWithKey(value, _Person.SECURITY_KEY);
+    }
+  }
+  
+  public com.eltek.model.Subscription subscription() {
+    return (com.eltek.model.Subscription)storedValueForKey(_Person.SUBSCRIPTION_KEY);
+  }
+  
+  public void setSubscription(com.eltek.model.Subscription value) {
+    takeStoredValueForKey(value, _Person.SUBSCRIPTION_KEY);
+  }
+
+  public void setSubscriptionRelationship(com.eltek.model.Subscription value) {
+    if (_Person.LOG.isDebugEnabled()) {
+      _Person.LOG.debug("updating subscription from " + subscription() + " to " + value);
+    }
+    if (er.extensions.eof.ERXGenericRecord.InverseRelationshipUpdater.updateInverseRelationships()) {
+    	setSubscription(value);
+    }
+    else if (value == null) {
+    	com.eltek.model.Subscription oldValue = subscription();
+    	if (oldValue != null) {
+    		removeObjectFromBothSidesOfRelationshipWithKey(oldValue, _Person.SUBSCRIPTION_KEY);
+      }
+    } else {
+    	addObjectToBothSidesOfRelationshipWithKey(value, _Person.SUBSCRIPTION_KEY);
+    }
+  }
+  
 
   public static com.eltek.model.Person createPerson(EOEditingContext editingContext, String firstName
 , String lastName
-) {
+, String login
+, Boolean retired
+, com.eltek.model.Security security) {
     com.eltek.model.Person eo = (com.eltek.model.Person) EOUtilities.createAndInsertInstance(editingContext, _Person.ENTITY_NAME);    
 		eo.setFirstName(firstName);
 		eo.setLastName(lastName);
+		eo.setLogin(login);
+		eo.setRetired(retired);
+    eo.setSecurityRelationship(security);
     return eo;
   }
 
