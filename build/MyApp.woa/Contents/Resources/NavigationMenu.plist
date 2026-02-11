@@ -6,7 +6,7 @@
 	{
 		name = "Home";
 		action = "session.navController.homeAction";
-		children = ("CreatePerson");
+		
 	},
 	{
 		name = "Person";
@@ -24,11 +24,17 @@
 	{
 		name = Client;
 		action = "session.navController.listClientAction";
-		children = ("CreateKids");
+		children = ("CreateKids","SearchClients");
 	},
 	{
 		name = CreateKids;
+		displayName="Create Clients";
 		action = "session.navController.createClientAction";
+	},
+	{
+		name = SearchClients;
+		displayName = "Search Clients";
+		action = "session.navController.searchClientAction";
 	}
 
 )

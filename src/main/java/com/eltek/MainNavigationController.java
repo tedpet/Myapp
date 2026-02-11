@@ -27,7 +27,9 @@ public class MainNavigationController {
 	// NAV ACTIONS
 	
 	public WOComponent homeAction() {
-        return D2W.factory().defaultPage(session());
+//        return D2W.factory().defaultPage(session());
+		return queryPageForEntityName(Person.ENTITY_NAME);
+
     }
 	
 //	// ADMIN
@@ -54,7 +56,11 @@ public class MainNavigationController {
 	public WOComponent createClientAction() {
 		return newObjectForEntityName(Client.ENTITY_NAME);
 	}
-	//  
+	
+	public WOComponent searchClientAction() {
+		return queryPageForEntityName(Client.ENTITY_NAME);
+	}
+
 	public WOComponent listPersonAction() {
 		EOEditingContext ec = ERXEC.newEditingContext();
 		ec.lock();

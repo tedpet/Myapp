@@ -59,6 +59,16 @@
 			<artifactId>ERPrototypes</artifactId>
 			<version>${wonder.version}</version>
 		</dependency>
+	<!--	<dependency>
+			<groupId>wonder.businesslogic</groupId>
+			<artifactId>ERCoreBusinessLogic</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>wonder.businesslogic</groupId>
+			<artifactId>ERAttachment</artifactId>
+			<version>${wonder.version}</version>
+		</dependency>-->
 		<dependency>
 			<groupId>wonder.d2w</groupId>
 			<artifactId>ERModernLook</artifactId>
@@ -115,6 +125,11 @@
           <groupId>wonder.plugins</groupId>
           <artifactId>PostgresqlPlugIn</artifactId>
           <version>${wonder.version}</version>
+     </dependency>
+     <dependency>
+          <groupId>com.eltek</groupId>
+          <artifactId>TPD2WFramework</artifactId>
+          <version>0.0.1-SNAPSHOT</version>
      </dependency>
 	</dependencies>
 </project>
