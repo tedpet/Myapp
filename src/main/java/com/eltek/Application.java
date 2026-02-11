@@ -1,7 +1,11 @@
 package com.eltek;
 
+import com.eltek.components.Main;
+import com.webobjects.appserver.WOSession;
+
 import er.extensions.appserver.ERXApplication;
 import er.extensions.appserver.navigation.ERXNavigationManager;
+import er.extensions.foundation.ERXPatcher;
 
 public class Application extends ERXApplication {
 	public static void main(String[] argv) {
@@ -22,4 +26,28 @@ public class Application extends ERXApplication {
     	ERXNavigationManager.manager().configureNavigation();
     	
     }
+    
+	/**
+	 * Determines the {@link WOSession} class to instantiate.
+	 *
+	 * @see com.webobjects.appserver.WOApplication#_sessionClass()
+	 */
+
+	@Override
+	protected Class<? extends WOSession> _sessionClass() {
+		return Session.class;
+	}
+
+
+	/**
+	 * Installs patches, including ensuring that {@code Main} is correctly resolved at runtime.
+	 *
+	 * @see er.extensions.appserver.ERXApplication#installPatches()
+	 */
+
+	@Override
+	public void installPatches() {
+		super.installPatches();
+		ERXPatcher.setClassForName(Main.class, "Main");
+	}
 }
